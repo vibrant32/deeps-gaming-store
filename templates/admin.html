@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/headers.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Admin || Deep's Gaming Store</title>
+    <style>
+        table {
+            counter-reset: section;
+        }
+
+        .count:before {
+            counter-increment: section;
+            content: counter(section);
+        }
+        table.table-bordered {
+            margin:20px;
+        }
+        table.table-bordered > thead > tr > th {
+            border:1px solid ;
+        }
+        table.table-bordered > tbody > tr > td {
+            border:1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <span class="fs-4"><b>Deep's Gaming Store</b></span>
+                </ul>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <span class="fs-5" style="margin-left: 400px;">Welcome <b>{{ context['username'] }}</b></span>
+                </ul>
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{url_for('static', filename='images/gear-wide-connected.svg')}}" alt="mdo" width="32"
+                            height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item"
+                                href="{{ url_for('logout', username=context['username']) }}">Logout</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="b-example-divider"></div>
+    <h2 class="mx-5 m-3 border-bottom">Purchased Products</h2>
+    <table class="table table-bordered border-4 align-middle mx-5 my-2" style="width: 80%;">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Srno</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Products Purchased</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in context['purchases']%}
+            <tr>                                
+                <td class="count"></td>                
+                <td>{{ data['username'] }}</td>
+                <td>{{ data['email'] }}</td>
+                <td>
+                    <ul>
+                        {% for prod in data['purchased'] %}
+                        <li>{{ prod['name'] }} - Rs {{ prod['price'] }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>            
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- <div class="b-example-divider"></div>
+    <h2 class="mx-5 m-3 border-bottom">Modify Products</h2> -->
+</body>
+
+</html>

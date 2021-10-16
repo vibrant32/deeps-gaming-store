@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/headers.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Deep's Gaming Store</title>
+    <style>
+        @media (min-width: 576px) {
+            .card-group.card-group-scroll {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .card-group.card-group-scroll>.card {
+                flex-basis: 25%;
+            }
+        }
+
+        .cardmargin {
+            margin-right: 30px;
+        }
+
+        .card img {
+
+            width: 400px;
+            height: 300px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body onload="setCartValue()">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="/static/js/script.js"></script>
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <span class="fs-4"><b>Deep's Gaming Store</b></span>
+                </ul>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <span class="fs-5" style="margin-left: 400px;">Welcome <b>{{ context['username'] }}</b></span>
+                </ul>
+                <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <img src="/static/images/cart-fill.svg" alt="" srcset="">
+                    <button type="button" id="btnpopover" class="btn btn-outline-success btn-lg"
+                        onclick="displayTable();" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        0
+                    </button>
+                </div>
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{url_for('static', filename='images/gear-wide-connected.svg')}}" alt="mdo" width="32"
+                            height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="{{ url_for('logout', username=context['username'])}}">Logout</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#staticBackdropTwo" data-bs-toggle="modal">Delete Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Controllers and Others -->
+    <div class="b-example-divider"></div>
+    <div class="container-fluid py-5 px-5">
+        <h2 class="pb-2 border-bottom">Controllers & Others</h2>
+        <div class="card-group card-group-scroll">
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/redgear_controller.jpg" width="200" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][0]['name'] }}</b> - Rs <b>{{ context['products'][0]['price'] }}</b></h5>
+                    <p class="card-text">A cost effective Wireless Gamepad (Compatible with Windows 7/8/8.1/10 only)</p>                    
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="button">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/redgear_headphones.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][1]['name'] }}</b> - Rs <b>{{ context['products'][1]['price'] }}</b></h5>
+                    <p class="card-text">A Wired RGB Lightning Gaming Headphone with Microphone and dazzling effects.
+                    </p>
+                        <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="button">Add
+                            To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/logitech_gamingwheel.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][2]['name'] }}</b> - Rs <b>{{ context['products'][2]['price'] }}</b></h5>
+                    <p class="card-text">Driving Racing Wheel, shifters and ajustable Floor pedal for PS5/PS4/PS3/PC/Mac
+                    </p>
+                        <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="button">Add
+                            To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/deepcool_fans.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][3]['name'] }}</b> - Rs <b>{{ context['products'][3]['price'] }}</b></h5>
+                    <p class="card-text">Dazzling RBG Light Effects and less noise with power saving, 120mm Case Fan
+                        3-in-1 Pack</p>
+                            <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="button">Add
+                                To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/xbox_controller.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][4]['name'] }}</b> - Rs <b>{{ context['products'][4]['price'] }}</b></h5>
+                    <p class="card-text">Experience the modernized design of electric Volt with battery usage up to 40
+                        hours.</p>
+                            <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="button">Add
+                                To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/nzxt_fans.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][5]['name'] }}</b> - Rs <b>{{ context['products'][5]['price'] }}</b></h5>
+                    <p class="card-text">Advanced Lighting Customizations - Winglet Tips - Fluid Dynamic Bearing - LED
+                        RGB PWM Fan for Hue 2 - Single</p>
+                            <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="button">Add
+                                To Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mouse and Keyboards -->
+    <div class="b-example-divider"></div>
+    <div class="container-fluid py-5 px-5">
+        <h2 class="pb-2 border-bottom">Mouse & Keyboards</h2>
+        <div class="card-group card-group-scroll">
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/keymou_combo.jpg" width="200" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][6]['name'] }}</b> - Rs <b>{{ context['products'][6]['price'] }}</b></h5>
+                    <p class="card-text">Multicolor LED ( 4 modes - 3 light modes and 1 off mode ), Integrated media
+                        control function</p>
+                            <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="button">Add
+                                To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/readgear_keyboard.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][7]['name'] }}</b> - Rs <b>{{ context['products'][7]['price'] }}</b></h5>
+                    <p class="card-text">Semi-Mechanical wired Gaming keyboard with 3 colour backlit, full aluminium
+                        body & Windows key lock.</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/hp_keyboard.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][8]['name'] }}</b> - Rs <b>{{ context['products'][8]['price'] }}</b></h5>
+                    <p class="card-text">Backlit Membrane Wired Gaming Keyboard, Backlit Mixed Color Lighting, Metal
+                        Panel with Logo Lighting</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/logitech_mouse.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][9]['name'] }}</b> - Rs <b>{{ context['products'][9]['price'] }}</b></h5>
+                    <p class="card-text">Light Sync Gaming Mouse with Customizable RGB Lighting, 6 Programmable Buttons
+                    </p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/zebronic_mouse.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][10]['name'] }}</b> - Rs <b>{{ context['products'][10]['price'] }}</b></h5>
+                    <p class="card-text">Zeb-Transformer-M is a Optical USB Gaming Mouse with 7 Colors LED Effect.</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/lenovo_mouse.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][11]['name'] }}</b> - Rs <b>{{ context['products'][11]['price'] }}</b> </h5>
+                    <p class="card-text">Gaming Wired USB Mouse, Ambidextrous, 5-buttons, upto 2400 DPI with 4 levels
+                        DPI switch.</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Games -->
+    <div class="b-example-divider"></div>
+    <div class="container-fluid py-5 px-5">
+        <h2 class="pb-2 border-bottom">PC Games</h2>
+        <div class="card-group card-group-scroll">
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/gta5.jpg" width="200" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][12]['name'] }}</b> - Rs <b>{{ context['products'][12]['price'] }}</b></h5>
+                    <p class="card-text">Premium Online Edition + Bonus L.A. Noire Complete Edition Rockstar Pc Download
+                        Code</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/jc4.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][13]['name'] }}</b> - Rs <b>{{ context['products'][13]['price'] }}</b></h5>
+                    <p class="card-text">Just Cause 4 is a 2018 action-adventure game. It is the fourth game in the Just
+                        Cause series</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/fifa21.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][14]['name'] }}</b> - Rs <b>{{ context['products'][14]['price'] }}</b></h5>
+                    <p class="card-text">Win as one in EA Sports FIFA 21, powered by Frostbite Cover Star Loan Item, for
+                        5 FUT matches.</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/rbsixsiege.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][15]['name'] }}</b> - Rs <b>{{ context['products'][15]['price'] }}</b></h5>
+                    <p class="card-text">The multiplayer gameplay of Rainbow Six Siege sets a new bar for intense
+                        firefights.</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/cyberpunk.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][16]['name'] }}</b> - Rs <b>{{ context['products'][16]['price'] }}</b></h5>
+                    <p class="card-text">Set in 2077, the game is set in an intriguing dystopian place called night city
+                        in California.</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+            <div class="cardmargin"></div>
+            <div class="card shadow-lg">
+                <img class="card-img-top" src="/static/images/wdogs.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ context['products'][17]['name'] }}</b> - Rs <b>{{ context['products'][17]['price'] }}</b></h5>
+                    <p class="card-text">Access security cameras, download personal information and control
+                        transportation.</p>
+                    <button class="w-100 btn btn-md btn-primary" onclick="incrementCartItems(this);" type="submit">Add
+                        To Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{{ context['username'] }}'s Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="cartmodal">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Shop More</button>
+                    <button type="submit" class="btn btn-primary" onclick="sendPurchasedProducts();" data-bs-dismiss="modal">Done with it</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="staticBackdropTwo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelTwo" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabelTwo">Delete Account</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Are You Sure You want to delete your account?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <a href="{{ url_for('delete_account', username=context['username']) }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Yes Confirm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>
