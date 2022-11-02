@@ -98,4 +98,4 @@ if "__main__" == __name__:
     app.secret_key = '$deep@gaming#store!'
     app.config['SESSION_TYPE'] = 'filesystem'    
     ses.init_app(app)
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
