@@ -1,0 +1,109 @@
+[{
+  "_id": {
+    "$oid": "6362911a48ee7f889cb5b3b5"
+  },
+  "name": "Redgear Controller",
+  "price": 1400
+},{
+  "_id": {
+    "$oid": "6362919f48ee7f889cb5b3b6"
+  },
+  "name": "Redgear Headphones",
+  "price": 1200
+},{
+  "_id": {
+    "$oid": "636292b748ee7f889cb5b3b7"
+  },
+  "name": "Logitech Gaming Wheel",
+  "price": 9000
+},{
+  "_id": {
+    "$oid": "6362931e48ee7f889cb5b3b8"
+  },
+  "name": "Deep Cool Fans",
+  "price": 1700
+},{
+  "_id": {
+    "$oid": "636295e2c4ab0399b454b0a2"
+  },
+  "name": "Xbox Controller",
+  "price": 1899
+},{
+  "_id": {
+    "$oid": "636295e2c4ab0399b454b0a3"
+  },
+  "name": "NZXT Fans",
+  "price": 1299
+},{
+  "_id": {
+    "$oid": "636295e2c4ab0399b454b0a4"
+  },
+  "name": "Keyboard Mouse Combo",
+  "price": 2199
+},{
+  "_id": {
+    "$oid": "636295e2c4ab0399b454b0a5"
+  },
+  "name": "Readgear Keyboard",
+  "price": 1199
+},{
+  "_id": {
+    "$oid": "636295e2c4ab0399b454b0a6"
+  },
+  "name": "HP Keyboard",
+  "price": 1099
+},{
+  "_id": {
+    "$oid": "636295e2c4ab0399b454b0a7"
+  },
+  "name": "Logitech Mouse",
+  "price": 899
+},{
+  "_id": {
+    "$oid": "636296e2c4ab0399b454b0a8"
+  },
+  "name": "Zebronic Mouse",
+  "price": 1099
+},{
+  "_id": {
+    "$oid": "636296e2c4ab0399b454b0a9"
+  },
+  "name": "Lenovo Mouse",
+  "price": 799
+},{
+  "_id": {
+    "$oid": "636296e2c4ab0399b454b0aa"
+  },
+  "name": "GTA 5",
+  "price": 2199
+},{
+  "_id": {
+    "$oid": "636296e2c4ab0399b454b0ab"
+  },
+  "name": "Just Cause 4",
+  "price": 1599
+},{
+  "_id": {
+    "$oid": "636296e2c4ab0399b454b0ac"
+  },
+  "name": "FIFA 2021",
+  "price": 1899
+},{
+  "_id": {
+    "$oid": "636296e2c4ab0399b454b0ad"
+  },
+  "name": "Rainbow Six Seige",
+  "price": 899
+},{
+  "_id": {
+    "$oid": "636297e4c4ab0399b454b0b3"
+  },
+  "name": "Cyberpunk",
+  "price": 3099
+},{
+  "_id": {
+    "$oid": "636297e4c4ab0399b454b0b4"
+  },
+  "name": "Watch Dogs 2",
+  "price": 1299
+}]
