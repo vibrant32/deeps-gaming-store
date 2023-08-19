@@ -1,0 +1,38 @@
+.form-signin {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    padding-top: 100px !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 330px !important;
+    margin: auto !important;
+}
+
+.form-signin .checkbox {
+    font-weight: 400 !important;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.signup {
+    text-decoration: underline;
+    color: dodgerblue;
+    cursor: pointer;
+    font-weight: bold;
+}
+
