@@ -1,0 +1,37 @@
+.sidebar {
+  background-color: #dddddd;
+}
+
+.sidebar-list-group {
+  background-color: #dddddd;
+}
+
+.bi-filter {
+  font-size: 1.5rem;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: initial;
+  appearance: initial;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 7px;
+  padding: 0 5px;
+}
+
+.custombg {
+  background-color: #bbbbbb;
+}
+
+.btn-light {
+  background-color: #f1f1f1;
+}
+
+.card-body {
+  background-color: #f1f1f1 !important;
+}
+

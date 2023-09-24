@@ -13,14 +13,14 @@ export class LoginPageComponent implements OnInit {
   public newUser: boolean = false;
   public loading: boolean = false;
   public isSuccess!: boolean;
-  public submitted:boolean = false;
+  public submitted: boolean = false;
   constructor(
     public authService: AuthenticationService,
     public router: Router
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
   triggerSignup() {
@@ -35,28 +35,27 @@ export class LoginPageComponent implements OnInit {
     // console.log(this.model);
     this.authService.registerUser(this.model).subscribe((response: object) => {
       const status = response["status" as keyof object];
-      if(status === "Success") {
+      if (status === "Success") {
         this.isSuccess = true;
         const id = response["userId" as keyof object];
         this.loadAndNavigateToDashboard(id);
-      } 
+      }
       else {
         const message = response["message" as keyof object];
-      } 
+      }
     })
   }
 
   // for existing user
   signIn() {
     this.submitted = true;
-    // console.log(this.model);
     this.authService.loginUser(this.model).subscribe((response: object) => {
       const status = response["status" as keyof object];
-      if(status === "Success") {
+      if (status === "Success") {
         const id = response["userId" as keyof object];
         this.loadAndNavigateToDashboard(id);
       }
-    })  
+    })
   }
 
   loadAndNavigateToDashboard(userId: number) {

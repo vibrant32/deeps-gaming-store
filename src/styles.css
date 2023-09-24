@@ -3,4 +3,5 @@ body {
   height: 100%;
   font-family: 'Inter' !important;
   background-color: #f5f5f5 !important;
+  /* background-image: linear-gradient(to right, #B5B4B7, #B5B7B9, #BBBABD, #BEC1C2, #C3C5C7, #C8C8CA, #CCCED1, #D2D3D5, #D7D8D6); */
 }

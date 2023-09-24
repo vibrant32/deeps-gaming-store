@@ -1,1 +1,47 @@
-<p>dashboard works!</p>
+
+<div class="container">
+  <!-- inlcuded navbar -->
+  <app-navbar></app-navbar>
+  <!-- included divider -->
+  <div class="b-example-divider"></div>
+  <!-- included hero -->
+  <div class="container dashboard-hero">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-1 shadow-lg">
+      <div class="col-lg-6 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">GAMING GEAR, ACCESSORIES AND MORE</h1>
+        <p class="lead"> 
+          IMMERSE YOURSELF IN A WORLD OF CUTTING-EDGE GAMING GEAR, ACCESSORIES, AND MORE. WHETHER YOU'RE A CASUAL PLAYER OR A HARDCORE ENTHUSIAST, OUR CURATED SELECTION ENSURES THAT YOU'LL FIND THE PERFECT TOOLS TO ENHANCE YOUR GAMING EXPERIENCE
+        </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-outline btn-lg px-4" (click)="scrollToTarget()">
+            SHOP NOW
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg me-1">
+          <img class="rounded-lg-3" src="assets/heroimage.png" alt="" width="500">
+      </div>
+    </div>
+  </div>
+  <!-- included divider -->
+  <div class="b-example-divider"></div>
+  <!-- included sidebar + product cards -->
+  <div class="d-flex flex-row" id="product-section">
+    <!-- sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <div class="flex-grow-1 p-3">
+      <div class="row row-cols-1 row-cols-md-4 g-3">
+        <!-- product card -->
+        <ng-container *ngFor="let number of [].constructor(8); let i = index">
+          <app-product-card></app-product-card>
+        </ng-container>
+      </div>
+
+      <div class="d-flex justify-content-center mt-3">
+        <app-pagination></app-pagination>
+      </div>
+    </div>
+        
+  </div>
+</div>

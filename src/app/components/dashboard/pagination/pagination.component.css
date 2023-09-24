@@ -1,0 +1,27 @@
+.custom-pagination {
+  background-color: #f1f1f1 !important;
+}
+.pagination {
+  background-color: #f1f1f1 !important;
+}
+
+.page-item {
+  background-color: #f1f1f1 !important;
+}
+
+.page-link {
+  color: black;
+  background-color: #f1f1f1 !important;
+}
+
+.active {
+  color: black;
+}
+
+.active>.page-link, .page-link.active {
+  z-index: 3;
+  color: #f1f1f1 !important;
+  background-color: #313131 !important;
+  border: 2px solid #4a4a4a !important;
+
+}

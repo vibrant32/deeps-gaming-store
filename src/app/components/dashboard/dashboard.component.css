@@ -1,0 +1,25 @@
+.dashboard-hero {
+  background-image: linear-gradient(to right, #B5B4B7, #B5B7B9, #BBBABD, #BEC1C2, #C3C5C7, #C8C8CA, #CCCED1, #D2D3D5, #D7D8D6);
+}
+
+.dashboard-hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn {
+  border-color: black;
+  color: black;
+}
+
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: #e9e9e9;
+  border: solid #d2d2d2;
+  border-width: 1px 0;
+}
+
+#product-section {
+  background-image: linear-gradient(to right, #B5B4B7, #B5B7B9, #BBBABD, #BEC1C2, #C3C5C7, #C8C8CA, #CCCED1, #D2D3D5, #D7D8D6);
+}

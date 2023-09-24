@@ -1,0 +1,52 @@
+.navbar {
+  background-color: #eaeaea;
+  background-image: linear-gradient(to right, #B5B4B7, #B5B7B9, #BBBABD, #BEC1C2, #C3C5C7, #C8C8CA, #CCCED1, #D2D3D5, #D7D8D6);
+}
+
+.dropdown-toggle {
+  color: black;
+}
+
+h3 {
+  color: black;
+}
+
+h3:hover {
+  color: black;
+}
+
+.bi-person {
+  font-size: 1.5rem; 
+  color: black;
+}
+
+.bi-person:hover {
+  color: #008080;
+}
+
+.bi-cart {
+  font-size: 1.5rem; 
+  color: black;
+}
+
+.bi-cart:hover { 
+  color: #008080;
+}
+
+.btn {
+  border-color: black;
+  color: black;
+}
+
+.btn:hover {
+  border-color: #008080;
+}
+
+.form-control {
+  background-color: #f1f1f1;
+}
+
+.form-control:focus {
+  border-color: #93c6c6;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(147, 198, 198);
+}

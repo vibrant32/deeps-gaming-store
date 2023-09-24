@@ -12,4 +12,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scrollToTarget() {
+    const target = document.querySelector("#product-section");
+    if(target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
 }
